@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BMI extends StatefulWidget {
   const BMI({Key? key}) : super(key: key);
@@ -49,11 +50,13 @@ class _BMIState extends State<BMI> {
             ),
             Text.rich(TextSpan(
               text: 'Height: ',
-              style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+              style:
+                  const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
               children: <TextSpan>[
                 TextSpan(
                   text: '${heightValue.toStringAsFixed(2)} m',
-                  style: const TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 40.0, fontWeight: FontWeight.bold),
                 ),
               ],
             )),
@@ -76,11 +79,13 @@ class _BMIState extends State<BMI> {
             ),
             Text.rich(TextSpan(
               text: 'Weight: ',
-              style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+              style:
+                  const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
               children: <TextSpan>[
                 TextSpan(
                   text: '${weightValue.toStringAsFixed(2)} kg',
-                  style: const TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 40.0, fontWeight: FontWeight.bold),
                 ),
               ],
             )),
@@ -106,8 +111,7 @@ class _BMIState extends State<BMI> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                    color: color,
-                    width: 38.0), // Set border color and width
+                    color: color, width: 38.0), // Set border color and width
               ),
               child: CircleAvatar(
                 backgroundColor: Colors.blue[300], // Set the background color
@@ -132,12 +136,24 @@ class _BMIState extends State<BMI> {
               ),
             ),
             const SizedBox(height: 20.0),
-            Text("Developed by: Pranto",
-                style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-                textAlign: TextAlign.center),
+            Text(
+              "Developed by",
+              style: GoogleFonts.bungeeSpice(
+                fontSize: 36.0,
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              "Pranto",
+              style: GoogleFonts.bungeeSpice(
+                fontSize: 36.0,
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),
