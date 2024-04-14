@@ -60,10 +60,15 @@ class _MealsState extends State<Meals> {
             Column(
               children: [
                 pranto_input(),
+                SizedBox(height: 10),
                 saiful_input(),
+                SizedBox(height: 10),
                 shakil_input(),
+                SizedBox(height: 10),
                 rizve_input(),
+                SizedBox(height: 10),
                 milton_input(),
+                SizedBox(height: 10),
                 reaz_input(),
                 const SizedBox(height: 20.0),
                 Row(
@@ -160,6 +165,7 @@ class _MealsState extends State<Meals> {
             decoration: InputDecoration(
               labelText: 'Enter a number',
               hintText: 'Hint for the user',
+              border: OutlineInputBorder(),
             ),
           ),
         ),
@@ -208,6 +214,7 @@ class _MealsState extends State<Meals> {
             decoration: InputDecoration(
               labelText: 'Enter a number',
               hintText: 'Hint for the user',
+              border: OutlineInputBorder(),
             ),
           ),
         ),
@@ -256,6 +263,7 @@ class _MealsState extends State<Meals> {
             decoration: InputDecoration(
               labelText: 'Enter a number',
               hintText: 'Hint for the user',
+              border: OutlineInputBorder(),
             ),
           ),
         ),
@@ -304,6 +312,7 @@ class _MealsState extends State<Meals> {
             decoration: InputDecoration(
               labelText: 'Enter a number',
               hintText: 'Hint for the user',
+              border: OutlineInputBorder(),
             ),
           ),
         ),
@@ -336,7 +345,7 @@ class _MealsState extends State<Meals> {
     return Row(
       children: [
         Text(
-          'saiful',
+          'Saiful',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         SizedBox(width: 10),
@@ -352,6 +361,7 @@ class _MealsState extends State<Meals> {
             decoration: InputDecoration(
               labelText: 'Enter a number',
               hintText: 'Hint for the user',
+              border: OutlineInputBorder(),
             ),
           ),
         ),
@@ -400,6 +410,7 @@ class _MealsState extends State<Meals> {
             decoration: const InputDecoration(
               labelText: 'Enter a number',
               hintText: 'Hint for the user',
+              border: OutlineInputBorder(),
             ),
           ),
         ),
