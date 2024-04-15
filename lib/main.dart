@@ -1,4 +1,5 @@
 import 'package:first_project/screens/admin/meals_input.dart';
+import 'package:first_project/screens/admin/test.dart';
 import 'package:first_project/screens/bmi_home.dart';
 import 'package:first_project/screens/counter_app.dart';
 import 'package:first_project/screens/home_page.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Meals(),
+      debugShowCheckedModeBanner: false,
+      home: Khabar(),
     );
   }
 }
