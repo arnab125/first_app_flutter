@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http; // Import http package
+import 'dart:convert'; // Import dart:convert to use jsonEncode()
+
+
 
 class Khabar extends StatefulWidget {
   const Khabar({
@@ -18,6 +22,54 @@ class _KhabarState extends State<Khabar> {
   final rizveController = TextEditingController(text: '0.0');
 
   DateTime selectedDate = DateTime.now();
+  bool isLoading = false;
+
+
+Future<Map<String, dynamic>> sendData() async {
+  try {
+    var url = Uri.parse('http://127.0.0.1:8000/add_meals?code=1234');
+
+    // Define data as a Map
+    var data = {
+      "pranto": double.parse(prantoController.text),
+      "saiful": double.parse(saifulController.text),
+      "shakil": double.parse(shakilController.text),
+      "milton": double.parse(miltonController.text),
+      "rizvee": double.parse(rizveController.text),
+      "reaz": double.parse(reazController.text),
+      "date": {
+        "day": selectedDate.day,
+        "month": selectedDate.month,
+        "year": selectedDate.year
+      }
+    };
+
+    // Convert data to JSON format
+    var jsonData = jsonEncode(data);
+
+    var response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'}, // Set content type to JSON
+      body: jsonData, // Send JSON data in the request body
+    );
+
+    if (response.statusCode == 200) {
+
+      Map<String, dynamic> responseBody = jsonDecode(response.body);
+      return responseBody;
+    } else {
+      // Return null or throw an error if desired
+      
+      return {'message': 'Error sending data'};
+    }
+  } catch (error) {
+    
+    print('Error sending data: $error');
+    // Return null or throw an error if desired
+    return {'message': 'Error sending data'};
+  }
+}
+
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -51,7 +103,7 @@ class _KhabarState extends State<Khabar> {
         title: Text('Add Meals', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),), 
         backgroundColor: Colors.green[600],
       ),
-      body: Container(
+      body: isLoading?Center(child: CircularProgressIndicator()):Container(
         color: Colors.blue[100],
         child: Form(
           
@@ -405,9 +457,19 @@ class _KhabarState extends State<Khabar> {
                       
                     ),
                   SizedBox(width: 20),
-                  ElevatedButton(onPressed: () {
-                    showDefaultValuesPopup(context);
-                  },
+                  ElevatedButton(onPressed: () async {
+                    setState(() {
+                      isLoading = true;
+                    });
+                    var responseBody = await sendData(); // Wait for sendData function to complete
+                    String message = responseBody['message'];
+                   bool success = responseBody['success'] ?? false;
+                    setState(() {
+                      isLoading = false;
+                    });
+                    showDefaultValuesPopup(context, message, success);
+                                    },
+                    
                   child: Row(
                     children: [
                       Text('Submit ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),),
@@ -427,14 +489,14 @@ class _KhabarState extends State<Khabar> {
 
   }
   
-  void showDefaultValuesPopup(BuildContext context) {
+  void showDefaultValuesPopup(BuildContext context, String message, bool success) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text('Meals for ${selectedDate.day}/${selectedDate.month}/${selectedDate.year}'),
         content: SingleChildScrollView(
-          child: ListBody(
+          child: (success??false)?ListBody(
             children: <Widget>[
               Text('Pranto: ${prantoController.text}'),
               Text('Saiful: ${saifulController.text}'),
@@ -442,6 +504,22 @@ class _KhabarState extends State<Khabar> {
               Text('Milton: ${miltonController.text}'),
               Text('Reaz: ${reazController.text}'),
               Text('Rizve: ${rizveController.text}'),
+              Row(
+                children: [
+                  Text(message, style: TextStyle(color: Colors.green[600], fontWeight: FontWeight.bold),),
+                  Icon(Icons.check, color: Colors.green[600], size: 16,)
+                ],
+              )
+            ],
+          ):
+          ListBody(
+            children: <Widget>[
+              Row(
+                children: [
+                  Text(message, style: TextStyle(color: Colors.red[600], fontWeight: FontWeight.bold),),
+                  Icon(Icons.error, color: Colors.red[600], size: 16,)
+                ],
+              )
             ],
           ),
         ),
