@@ -1,3 +1,4 @@
+import 'package:first_project/screens/admin/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http; // Import http package
 import 'dart:convert'; // Import dart:convert to use jsonEncode()
@@ -103,6 +104,7 @@ Future<Map<String, dynamic>> sendData() async {
         title: Text('Add Meals', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),), 
         backgroundColor: Colors.green[600],
       ),
+      drawer: drawer(context),
       body: isLoading?Center(child: CircularProgressIndicator()):Container(
         color: Colors.blue[100],
         child: Form(

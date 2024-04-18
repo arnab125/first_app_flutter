@@ -1,3 +1,4 @@
+import 'package:first_project/screens/admin/drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,6 +15,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.blue[400],
           centerTitle: true,
         ),
+        drawer: drawer(context),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -25,6 +27,7 @@ class HomePage extends StatelessWidget {
           ),
         ));
   }
+
 
   Widget paragraphSection() {
     return const Padding(

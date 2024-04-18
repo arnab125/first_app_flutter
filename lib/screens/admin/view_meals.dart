@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:first_project/screens/admin/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -83,6 +84,7 @@ Widget build(BuildContext context) {
       backgroundColor: Colors.blue[400],
       centerTitle: true,
     ),
+    drawer: drawer(context),
     body: FutureBuilder<List<Map<String, dynamic>>>(
       future: okButtonClicked ? fetchMeals() : mealsData,
       builder: (context, snapshot) {

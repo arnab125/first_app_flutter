@@ -1,7 +1,10 @@
 import 'dart:convert';
 
+import 'package:first_project/screens/admin/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
+
 
 class AddSavings extends StatefulWidget {
   const AddSavings({
@@ -87,13 +90,16 @@ class _AddSavingsState extends State<AddSavings> {
           'Add Savings and Cost',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        
         backgroundColor: Colors.blue[400],
         centerTitle: true,
       ),
+      drawer: drawer(context),
       body: isLoading?Center(
         child: CircularProgressIndicator(),
       ):
         Container(
+          color: Colors.green[50],
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
