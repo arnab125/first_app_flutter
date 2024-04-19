@@ -36,7 +36,7 @@ Future<Map<String, dynamic>> sendData() async {
       "saiful": double.parse(saifulController.text),
       "shakil": double.parse(shakilController.text),
       "milton": double.parse(miltonController.text),
-      "rizvee": double.parse(rizveController.text),
+      "rizve": double.parse(rizveController.text),
       "reaz": double.parse(reazController.text),
       "date": {
         "day": selectedDate.day,

@@ -98,7 +98,7 @@ class _ViewSavingsState extends State<ViewSavings> {
                         CircularProgressIndicator(),
                         SizedBox(height: 10,),
                         Text(
-                          'Deleting saving... Please wait...',
+                          'Deleting savings... Please wait...',
                           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
                         ),
                       ],

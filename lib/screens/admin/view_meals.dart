@@ -113,7 +113,7 @@ Widget build(BuildContext context) {
                   DataColumn(label: Text('Saiful')),
                   DataColumn(label: Text('Shakil')),
                   DataColumn(label: Text('Milton')),
-                  DataColumn(label: Text('Rizvee')),
+                  DataColumn(label: Text('Rizve')),
                   DataColumn(label: Text('Reaz')),
                   DataColumn(label: Text('Action')),
                 ],
@@ -124,7 +124,7 @@ Widget build(BuildContext context) {
                     DataCell(Text('${meal['saiful']}')),
                     DataCell(Text('${meal['shakil']}')),
                     DataCell(Text('${meal['milton']}')),
-                    DataCell(Text('${meal['rizvee']}')),
+                    DataCell(Text('${meal['rizve']}')),
                     DataCell(Text('${meal['reaz']}')),
                     DataCell(
                       IconButton(

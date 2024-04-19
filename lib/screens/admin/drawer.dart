@@ -43,6 +43,12 @@ Drawer drawer(BuildContext context) {
             Navigator.pushNamed(context, '/viewSavings');
           },
         ),
+        ListTile(
+          title: Text('View Detailed Savings and Expenses'),
+          onTap: () {
+            Navigator.pushNamed(context, '/detailed');
+          },
+        ),
         // Add more list tiles for other routes
       ],
     ),
