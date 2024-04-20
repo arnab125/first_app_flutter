@@ -1,4 +1,5 @@
 
+import 'package:first_project/screens/admin/admin_code.dart';
 import 'package:first_project/screens/admin/save_cost_breakdown.dart';
 import 'package:first_project/screens/admin/savings_cost.dart';
 import 'package:first_project/screens/admin/test.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         '/addMeals': (context) => Khabar(),
         '/viewSavings': (context) => ViewSavings(),
         '/detailed': (context) => detailed(),
+        '/admin': (context) => Admin(),
       },
     );
   }

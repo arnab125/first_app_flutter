@@ -1,4 +1,5 @@
 import 'package:first_project/screens/admin/drawer.dart';
+import 'package:first_project/screens/admin/get_code.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http; // Import http package
 import 'dart:convert'; // Import dart:convert to use jsonEncode()
@@ -28,7 +29,8 @@ class _KhabarState extends State<Khabar> {
 
 Future<Map<String, dynamic>> sendData() async {
   try {
-    var url = Uri.parse('http://127.0.0.1:8000/add_meals?code=1234');
+    String? code = await getSecretCode();
+    var url = Uri.parse('https://advanced-teddie-pranto.koyeb.app/add_meals?code=$code');
 
     // Define data as a Map
     var data = {
@@ -115,7 +117,7 @@ Future<Map<String, dynamic>> sendData() async {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  keyboardType: TextInputType.phone,
+                  keyboardType: TextInputType.number,
                   controller: prantoController,
                   decoration: InputDecoration(
                     filled: true,
@@ -168,6 +170,7 @@ Future<Map<String, dynamic>> sendData() async {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                   keyboardType: TextInputType.number,
                   controller: saifulController,
                   decoration: InputDecoration(
                     filled: true,
@@ -222,6 +225,7 @@ Future<Map<String, dynamic>> sendData() async {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  keyboardType: TextInputType.number,
                   controller: shakilController,
                   decoration: InputDecoration(
                     filled: true,
@@ -276,6 +280,7 @@ Future<Map<String, dynamic>> sendData() async {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                   keyboardType: TextInputType.number,
                   controller: miltonController,
                   decoration: InputDecoration(
                     filled: true,
@@ -332,6 +337,7 @@ Future<Map<String, dynamic>> sendData() async {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                   keyboardType: TextInputType.number,
                   controller: reazController,
                   decoration: InputDecoration(
                      filled: true,
@@ -388,6 +394,7 @@ Future<Map<String, dynamic>> sendData() async {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                   keyboardType: TextInputType.number,
                   controller: rizveController,
                   decoration: InputDecoration(
                       filled: true,

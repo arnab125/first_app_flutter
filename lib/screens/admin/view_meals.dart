@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:first_project/screens/admin/drawer.dart';
+import 'package:first_project/screens/admin/get_code.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -27,7 +28,7 @@ class _ViewMealsState extends State<ViewMeals> {
 
   Future<List<Map<String, dynamic>>> fetchMeals() async {
     try {
-      var url = Uri.parse('http://127.0.0.1:8000/get_meals?code=1234');
+      var url = Uri.parse('https://advanced-teddie-pranto.koyeb.app/get_meals');
 
       var response = await http.get(url);
 
@@ -50,7 +51,8 @@ class _ViewMealsState extends State<ViewMeals> {
 
   Future<Map<String, dynamic>> deleteMeal(String id) async {
     try {
-      var url = Uri.parse('http://127.0.0.1:8000/delete_meal?code=1234&id=$id');
+      String? code = await getSecretCode();
+      var url = Uri.parse('https://advanced-teddie-pranto.koyeb.app?code=$code&id=$id');
 
       var response = await http.get(url);
 

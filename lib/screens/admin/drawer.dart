@@ -49,6 +49,12 @@ Drawer drawer(BuildContext context) {
             Navigator.pushNamed(context, '/detailed');
           },
         ),
+        ListTile(
+          title: Text('Admin'),
+          onTap: () {
+            Navigator.pushNamed(context, '/admin');
+          },
+        ),
         // Add more list tiles for other routes
       ],
     ),

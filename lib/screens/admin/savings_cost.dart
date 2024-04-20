@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:first_project/screens/admin/drawer.dart';
+import 'package:first_project/screens/admin/get_code.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 
@@ -23,8 +25,10 @@ class _AddSavingsState extends State<AddSavings> {
 
   Future<Map<String, dynamic>> sendSavingsAndCosts() async {
     try {
+      String? code = await getSecretCode();
+      
       var url =
-          Uri.parse('http://127.0.0.1:8000/savings_and_expenses?code=1234');
+          Uri.parse('https://advanced-teddie-pranto.koyeb.app/savings_and_expenses?code=$code');
 
       // Define data as a Map
       var data = {

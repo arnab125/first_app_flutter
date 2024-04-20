@@ -23,13 +23,13 @@ class _detailedState extends State<detailed> {
 
   Future<Map<String, dynamic>> fetchReports() async {
     try {
-      var url = Uri.parse('http://127.0.0.1:8000/full_report');
+      var url = Uri.parse('https://advanced-teddie-pranto.koyeb.app/full_report');
 
       var response = await http.get(url);
 
       if (response.statusCode == 200) {
         Map<String, dynamic> responseData = jsonDecode(response.body);
-        print(responseData);
+        
         
         return responseData;
       } else {
