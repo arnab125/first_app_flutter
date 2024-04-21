@@ -8,17 +8,12 @@ Drawer drawer(BuildContext context) {
       padding: EdgeInsets.zero,
       children: <Widget>[
         DrawerHeader(
-          child: Text('Drawer Header'),
+          child: Text('Menu', style: TextStyle(color: Colors.white, fontSize: 25)),
           decoration: BoxDecoration(
             color: Colors.blue,
           ),
         ),
-        ListTile(
-          title: Text('Home'),
-          onTap: () {
-            Navigator.pushNamed(context, '/');
-          },
-        ),
+        
         ListTile(
           title: Text('View Meals'),
           onTap: () {
@@ -44,7 +39,7 @@ Drawer drawer(BuildContext context) {
           },
         ),
         ListTile(
-          title: Text('View Detailed Savings and Expenses'),
+          title: Text('Monthly Report'),
           onTap: () {
             Navigator.pushNamed(context, '/detailed');
           },

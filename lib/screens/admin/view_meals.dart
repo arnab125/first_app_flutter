@@ -81,10 +81,10 @@ Widget build(BuildContext context) {
     appBar: AppBar(
       title: Text(
         'View Meals',
-        style: TextStyle(fontWeight: FontWeight.bold),
+        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
       ),
-      backgroundColor: Colors.blue[400],
-      centerTitle: true,
+      backgroundColor: Colors.green[600],
+      
     ),
     drawer: drawer(context),
     body: FutureBuilder<List<Map<String, dynamic>>>(
@@ -136,7 +136,7 @@ Widget build(BuildContext context) {
                       isLoading = true;
                     });
                     var responseBody = await deleteMeal(meal['_id']);
-                    String message = responseBody['message'];
+                    String message = responseBody['message'] ?? 'Failed to delete meal';
                    bool success = responseBody['success'] ?? false;
                     setState(() {
                       isLoading = false;

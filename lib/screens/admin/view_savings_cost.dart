@@ -77,10 +77,9 @@ class _ViewSavingsState extends State<ViewSavings> {
       appBar: AppBar(
         title: Text(
           'View Savings and Expenses',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: Colors.blue[400],
-        centerTitle: true,
+        backgroundColor: Colors.green[600],
       ),
       drawer: drawer(context),
       body: FutureBuilder<List<Map<String, dynamic>>>(
@@ -135,7 +134,7 @@ class _ViewSavingsState extends State<ViewSavings> {
                                 setState(() {
                                   isLoading = false;
                                 });
-                                showDefaultValuesPopup(context, response['message'], response['success'],
+                                showDefaultValuesPopup(context, response['message'] ?? 'Failed to delete saving', response['success'] ?? false,
                                     '${saving['date']['day']}/${saving['date']['month']}/${saving['date']['year']}');
                               },
                             ),

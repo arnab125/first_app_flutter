@@ -471,7 +471,7 @@ Future<Map<String, dynamic>> sendData() async {
                       isLoading = true;
                     });
                     var responseBody = await sendData(); // Wait for sendData function to complete
-                    String message = responseBody['message'];
+                    String message = responseBody['message'] ?? 'Failed to send data';
                    bool success = responseBody['success'] ?? false;
                     setState(() {
                       isLoading = false;

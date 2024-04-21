@@ -24,9 +24,9 @@ class _AdminState extends State<Admin> {
     Widget build(BuildContext context) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('ListView Example', style: TextStyle(fontWeight: FontWeight.bold)),
-            backgroundColor: Colors.blue[400],
-            centerTitle: true,
+            title: Text('Admin', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+            backgroundColor: Colors.green[600],
+            
           ),
           body: Container(
             padding: EdgeInsets.all(20),

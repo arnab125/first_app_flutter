@@ -92,11 +92,11 @@ class _AddSavingsState extends State<AddSavings> {
       appBar: AppBar(
         title: Text(
           'Add Savings and Cost',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         
-        backgroundColor: Colors.blue[400],
-        centerTitle: true,
+        backgroundColor: Colors.green[600],
+        
       ),
       drawer: drawer(context),
       body: isLoading?Center(
@@ -107,13 +107,7 @@ class _AddSavingsState extends State<AddSavings> {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            Text(
-              'Add Savings and Cost',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            
             SizedBox(
               height: 20,
             ),
@@ -228,7 +222,7 @@ class _AddSavingsState extends State<AddSavings> {
                 });
                 var responseBody =
                     await sendSavingsAndCosts(); // Wait for sendData function to complete
-                String message = responseBody['message'];
+                String message = responseBody['message'] ?? 'Error sending data';
                 bool success = responseBody['success'] ?? false;
                 setState(() {
                   isLoading = false;
