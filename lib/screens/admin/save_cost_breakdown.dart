@@ -26,7 +26,7 @@ class _detailedState extends State<detailed> {
 
   Future<Map<String, dynamic>> sendBackup() async {
     try {
-      var url = Uri.parse('https://advanced-teddie-pranto.koyeb.app/send_backup');
+      var url = Uri.parse('https://zaformess.azurewebsites.net/send_backup');
 
       var response = await http.get(url);
 
@@ -49,7 +49,7 @@ class _detailedState extends State<detailed> {
   Future<Map<String, dynamic>> fetchReports() async {
     try {
       var url =
-          Uri.parse('https://advanced-teddie-pranto.koyeb.app/full_report');
+          Uri.parse('https://zaformess.azurewebsites.net/full_report');
 
       var response = await http.get(url);
 

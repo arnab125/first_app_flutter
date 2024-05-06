@@ -28,7 +28,7 @@ class _AddSavingsState extends State<AddSavings> {
       String? code = await getSecretCode();
       
       var url =
-          Uri.parse('https://advanced-teddie-pranto.koyeb.app/savings_and_expenses?code=$code');
+          Uri.parse('https://zaformess.azurewebsites.net/savings_and_expenses?code=$code');
 
       // Define data as a Map
       var data = {

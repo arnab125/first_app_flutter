@@ -28,7 +28,7 @@ class _ViewSavingsState extends State<ViewSavings> {
 
   Future<List<Map<String, dynamic>>> fetchSavings() async {
     try {
-      var url = Uri.parse('https://advanced-teddie-pranto.koyeb.app/get_savings_and_expenses');
+      var url = Uri.parse('https://zaformess.azurewebsites.net/get_savings_and_expenses');
 
       var response = await http.get(url);
 
@@ -52,7 +52,7 @@ class _ViewSavingsState extends State<ViewSavings> {
   Future<Map<String, dynamic>> deleteSaving(String id) async {
     try {
       String? code = await getSecretCode();
-      var url = Uri.parse('https://advanced-teddie-pranto.koyeb.app/delete_savings_and_expense?code=$code&id=$id');
+      var url = Uri.parse('https://zaformess.azurewebsites.net/delete_savings_and_expense?code=$code&id=$id');
 
       var response = await http.get(url);
 

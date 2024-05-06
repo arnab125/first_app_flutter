@@ -30,7 +30,7 @@ class _KhabarState extends State<Khabar> {
 Future<Map<String, dynamic>> sendData() async {
   try {
     String? code = await getSecretCode();
-    var url = Uri.parse('https://advanced-teddie-pranto.koyeb.app/add_meals?code=$code');
+    var url = Uri.parse('https://zaformess.azurewebsites.net/add_meals?code=$code');
 
     // Define data as a Map
     var data = {

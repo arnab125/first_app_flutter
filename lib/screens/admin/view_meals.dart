@@ -28,7 +28,7 @@ class _ViewMealsState extends State<ViewMeals> {
 
   Future<List<Map<String, dynamic>>> fetchMeals() async {
     try {
-      var url = Uri.parse('https://advanced-teddie-pranto.koyeb.app/get_meals');
+      var url = Uri.parse('https://zaformess.azurewebsites.net/get_meals');
 
       var response = await http.get(url);
 
@@ -52,7 +52,7 @@ class _ViewMealsState extends State<ViewMeals> {
   Future<Map<String, dynamic>> deleteMeal(String id) async {
     try {
       String? code = await getSecretCode();
-      var url = Uri.parse('https://advanced-teddie-pranto.koyeb.app?code=$code&id=$id');
+      var url = Uri.parse('https://zaformess.azurewebsites.net/delete_meal?code=$code&id=$id');
 
       var response = await http.get(url);
 
